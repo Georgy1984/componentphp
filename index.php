@@ -92,6 +92,8 @@ if(Input::exists()) {
     }
  }
 
+// FUCK U
+
 
 ?>
 
@@ -115,6 +117,8 @@ if(Input::exists()) {
 
     <button type="submit" class="btn btn-default float-right">Войти</button>
 </form>
+
+
 
 
 
