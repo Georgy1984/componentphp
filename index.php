@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once 'Database.php';
 require_once 'Config.php';
 require_once 'Validate.php';
@@ -46,9 +48,7 @@ $GLOBALS['config'] = [
         'username' => 'root',
         'password' => 'SlowHead2023'
         ],
-    'session' => [
-            'token_name' => 'token'
-    ]
+    'session' => ['token_name' => 'token']
 
 ];
 
