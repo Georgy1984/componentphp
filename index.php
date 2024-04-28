@@ -117,7 +117,7 @@ if(Input::exists()) {
         <input type="text"   name="password_again">
     </div>
 
-    <input type="hidden " name="token" value="<?php echo Token::generate(); ?>">
+    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 
     <button type="submit" class="btn btn-default float-right">Войти</button>
 </form>
