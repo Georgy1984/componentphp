@@ -15,10 +15,17 @@ if(Input::exists()) {
                 'max' => 15,
                 'unique' => 'users2'
             ],
+
+            'email' => [
+                'required' => true,
+                'email' => true,
+                'unique' => 'users2'
+            ],
             'password' => [
                 'required' => true,
                 'min' => 3
             ],
+
             'password_again' => [
                 'required' => true,
                 'matches' => 'password'
@@ -34,6 +41,7 @@ if(Input::exists()) {
             $user->create([
                 'username' => Input::get('username'),
                 'password' => password_hash(Input::get('password'), PASSWORD_DEFAULT),
+                'email' => Input::get('email')
             ]);
 
 
@@ -71,7 +79,14 @@ if(Input::exists()) {
         <input type="text"   name="password_again">
     </div>
 
+    <div class="">
+        <label for="email">email</label>
+        <input type="text"  name="email" value="<?php echo Input::get('email')?>">
+
+    </div>
+
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+
 
     <button type="submit" class="btn btn-default float-right">Войти</button>
 </form>
