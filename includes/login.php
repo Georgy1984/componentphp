@@ -17,7 +17,7 @@ require_once 'init.php';
                 $login = $user->login(Input::get('email'), Input::get('password'));
 
                 if ($login) {
-                    echo 'Login OK';
+                    Redirect::to('index.php');
                 } else {
                     echo 'Login failed';
                 }
