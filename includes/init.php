@@ -21,10 +21,14 @@ $GLOBALS['config'] = [
         'username' => 'root',
         'password' => 'SlowHead2023'
     ],
-    'session' => ['token_name' => 'token']
+    'session' => [
+        'token_name' => 'token',
+        'user_session' => 'user'
+        ]
+
 
 ];
 
 
-?>
+
 
