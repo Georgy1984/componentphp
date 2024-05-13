@@ -71,7 +71,7 @@ if(Input::exists()) {
 
     <div class="">
         <label for="">Password</label>
-        <input type="text"   name="password">
+        <input type="text"   name="password" >
     </div>
 
     <div class="">
