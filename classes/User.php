@@ -73,6 +73,11 @@ class User
         return $this->isLoggedIn;
     }
 
+    public function logout() 
+    {
+        return Session::delete($this->session_name);
+    }
+
 
 
 }
