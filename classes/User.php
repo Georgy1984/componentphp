@@ -31,16 +31,36 @@ class User
 
     }
 
-    public  function login($email = null, $password = null)
+    public  function login($email = null, $password = null, $remember = false)
     {
-        $user = $this->find($email);
+        if (!$email && !$password && $this->exists()) {
+            Session::put($this->session_name, $this->data()->id);
+        } else {
 
-        if ($user) {
-            if(password_verify($password, $this->data()->password)) {
-                Session::put($this->session_name, $this->data()->id);
-                return true;
+            $user = $this->find($email);
+
+            if ($user) {
+                if(password_verify($password, $this->data()->password)) {
+                    Session::put($this->session_name, $this->data()->id);
+
+                    if ($remember) {
+                        $hash = hash('sha256', uniqid());
+
+                        $hashCheck = $this->db->get('user_sessions', ['user_id'. '=', $this->data()->id]);
+
+                        if (!$hashCheck->count()) {
+                            $this->db->insert('user_sessions', ['user_id' => $this->data->id, 'hash' => $hash]);
+                        } else {
+                            $hash = $hashCheck->first()->hash;
+                        }
+                        Cookie::put($this->cookieName, $hash, Config::get('cookie.cookie_expire'));
+                    }
+
+                    return true;
+                }
             }
         }
+
 
         return false;
 

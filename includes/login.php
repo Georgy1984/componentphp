@@ -14,7 +14,9 @@ require_once 'init.php';
             if($validate->passed()) {
                 $user = new User;
 
-                $login = $user->login(Input::get('email'), Input::get('password'));
+                $remember = (Input::get('remember')) === 'on' ? true : false;
+
+                $login = $user->login(Input::get('email'), Input::get('password'), $remember);
 
                 if ($login) {
                     Redirect::to('index.php');
