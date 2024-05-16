@@ -28,7 +28,7 @@ $GLOBALS['config'] = [
         ],
     'cookie' => [
         'cookie_name' => 'hash',
-        'cookie_expire' => 604800
+        'cookie_expiry' => 604800
     ]
 
 
