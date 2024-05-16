@@ -46,13 +46,17 @@ class User
                     if ($remember) {
                         $hash = hash('sha256', uniqid());
 
+
                         $hashCheck = $this->db->get('user_sessions', ['user_id', '=', $this->data()->id]);
+
 
                         if (!$hashCheck->count()) {
                             $this->db->insert('user_sessions', ['user_id' => $this->data()->id, 'hash' => $hash]);
                         } else {
                             $hash = $hashCheck->first()->hash;
                         }
+                        $this->cookieName = 'hash';
+
                         Cookie::put($this->cookieName, $hash, Config::get('cookie.cookie_expiry'));
                     }
 
@@ -100,6 +104,15 @@ class User
 
     public function exists() {
         return (!empty($this->data())) ? true : false;
+    }
+
+    public function update($fields=[], $id = null)
+    {
+        if (!$id && $this->isLoggedIn()) {
+            $id = $this->data()->id;
+        }
+
+        $this->db->update('users2', $id, $fields);
     }
 
 

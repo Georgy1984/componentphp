@@ -54,10 +54,13 @@ require_once 'init.php';
 
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>"> <br>
 
-    <label for="remember-me">
-        <input type="checkbox" id="remember-me" name="remember-me"> Запомнить меня </br> </br>
+    <div>
 
-    </label>
+            <input type="checkbox" id="remember" name="remember">
+        <label for="remember"> Remember me</label>
+    </div>
+    <br>
+
 
     <button type="submit" class="btn btn-default float-right">Войти</button>
 </form>
