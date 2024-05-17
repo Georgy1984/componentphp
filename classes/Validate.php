@@ -23,18 +23,18 @@ class Validate {
                     switch ($rule) {
                         case 'min':
                             if (strlen($value) < $rule_value) {
-                                $this->addError("{$item} is too short");
+                                $this->addError("{$item} must be a minimum of {$rule_value} characters.");
                             }
                             break;
                             case 'max':
                                 if (strlen($value) > $rule_value) {
-                                    $this->addError("{$item} is too long, must be {$rule_value}");
+                                    $this->addError("{$item} item must be a maximum {$rule_value} characters.");
                                 }
                                 break;
 
                         case 'matches':
                             if ($value != $source[$rule_value]) {
-                                $this->addError("{$rule_value} does not match {$item}");
+                                $this->addError("{$rule_value} must match {$item}");
                             }
                             break;
                         case 'unique':

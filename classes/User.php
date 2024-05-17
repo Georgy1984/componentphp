@@ -12,9 +12,6 @@ class User
                 $user = Session::get($this->session_name); //id получаю.
                 if ($this->find($user)) {
                     $this->isLoggedIn = true;
-                } else {
-
-                    //logout
                 }
 
 

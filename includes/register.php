@@ -23,7 +23,7 @@ if(Input::exists()) {
             ],
             'password' => [
                 'required' => true,
-                'min' => 3
+                'min' => 6
             ],
 
             'password_again' => [

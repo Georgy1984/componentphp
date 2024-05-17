@@ -24,13 +24,6 @@ if (Input::exists()) {
     }
 }
 
-
-
-
-
-
-
-
 ?>
 
 <form action="" method="post">
