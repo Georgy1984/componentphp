@@ -115,9 +115,9 @@ class User
     }
 
     public function hasPermissions($key = null) {
-        $group = $this->db->get('groups', ['id', '=', $this->data()->group_id]);
+        $group = $this->db->get('groups', ['id', '=', $this->data()->group_id])->first();
 
-        var_dump($group);
+        //var_dump($group);
     }
 
 
