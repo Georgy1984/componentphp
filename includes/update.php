@@ -14,7 +14,7 @@ if (Input::exists()) {
     if (Token::check(Input::get('token'))) {
         if ($validate->passed()) {
             $user->update(['username' => Input::get('username')]);
-            Redirect::to('update.php');
+            Redirect::to('index.php');
 
         } else {
             foreach($validate->errors() as $error) {

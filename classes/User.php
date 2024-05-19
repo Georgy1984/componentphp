@@ -96,7 +96,9 @@ class User
 
     public function logout() 
     {
-        return Session::delete($this->session_name);
+        $this->db->delete('user_sessions', ['user_id', '=', $this->data()->id]);
+        Session::delete($this->session_name);
+        Cookie::delete($this->cookieName);
     }
 
     public function exists() {
@@ -110,6 +112,12 @@ class User
         }
 
         $this->db->update('users2', $id, $fields);
+    }
+
+    public function hasPermissions($key = null) {
+        $group = $this->db->get('groups', ['id', '=', $this->data()->group_id]);
+
+        var_dump($group);
     }
 
 

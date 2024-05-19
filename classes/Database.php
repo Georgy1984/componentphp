@@ -14,6 +14,8 @@ class Database {
 
         } catch (PDOException $exception) {
             die($exception->getMessage());
+
+
         }
 
     }
@@ -112,10 +114,10 @@ class Database {
                 $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
                 if (!$this->query($sql, [$value])->error()) {
                     return  $this;
+
                 }
 
             }
-
 
         }
 
@@ -144,7 +146,8 @@ class Database {
 
     public function first()
     {
-        return $this->results()[0];
+       // return $this->results()[0];
+        return (!empty($this->results())) ? $this->results()[0] : null;
 
     }
 
