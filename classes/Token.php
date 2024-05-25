@@ -1,5 +1,5 @@
 <?php
-
+namespace classes;
 class Token {
 
     public  static function generate()

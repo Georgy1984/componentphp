@@ -1,6 +1,6 @@
 <?php
 
-
+namespace classes;
 class Config
 {
     public static function get($path = null)

@@ -1,5 +1,5 @@
 <?php
-
+namespace classes;
 class Redirect {
 
     public static function to($location = null)

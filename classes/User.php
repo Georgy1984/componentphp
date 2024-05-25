@@ -1,5 +1,5 @@
 <?php
-
+namespace classes;
 class User
 {
     private $db, $data, $session_name, $isLoggedIn, $cookieName;

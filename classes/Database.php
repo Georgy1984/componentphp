@@ -1,6 +1,6 @@
 <?php
 
-
+namespace classes;
 class Database {
 
     private  static  $instance = null;

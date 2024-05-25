@@ -1,5 +1,5 @@
 <?php
-
+namespace classes;
 class Cookie
 {
     public static  function exists($name)

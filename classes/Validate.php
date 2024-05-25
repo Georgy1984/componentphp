@@ -1,5 +1,5 @@
 <?php
-
+namespace classes;
 class Validate {
     private $passed = false, $errors = [], $db = null;
 
